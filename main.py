@@ -17,8 +17,8 @@ from datasets.custom import CustomImageDataset
 from models.fusion import MultiscaleFusionClassifier
 
 def get_data_splits(train_df, test_df):
-    train_paths = ['./augmented29-4-padufes20-train-set/' + str(i) + '.png' for i in train_df.img_id]
-    test_paths  = ['./padufes20/padufes20-test-set/'   + str(i) + '.png' for i in test_df.img_id]
+    train_paths = ['./datasets/augmented29-4-padufes20-train-set/' + str(i) + '.png' for i in train_df.img_id]
+    test_paths  = ['./datasets/padufes20/padufes20-test-set/'   + str(i) + '.png' for i in test_df.img_id]
     train_labels = train_df.diagnostic_encoded.values
     test_labels  = test_df.diagnostic_encoded.values
     cols = ['age', 'smoke', 'drink', 'pesticide', 'gender', 'skin_cancer_history',
@@ -42,8 +42,8 @@ def main():
     output_dir = "./mhgf2"
     os.makedirs(output_dir, exist_ok=True)
 
-    train_df = pd.read_csv('./augmented29-4-padufes20-train-set/augmented29_4_padufes20_train_metadata.csv')
-    test_df  = pd.read_csv('./padufes20/padufes20-test-metadata.csv')
+    train_df = pd.read_csv('./datasets/augmented29-4-padufes20-train-set/augmented29_4_padufes20_train_metadata.csv')
+    test_df  = pd.read_csv('./datasets/padufes20/padufes20-test-metadata.csv')
     train_paths, train_meta, train_labels, test_paths, test_meta, test_labels = get_data_splits(train_df, test_df)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
