@@ -1,5 +1,3 @@
-# skin-lesion-multimodal-fusion
-
 # Multimodal Graph-Based Fusion for Skin Lesion Classification
 
 PyTorch implementation of a multi-scale, hierarchical graph fusion module for skin lesion classification using clinical images and tabular metadata.
